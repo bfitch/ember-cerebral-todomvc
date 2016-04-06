@@ -1,7 +1,39 @@
-# Ember-cerebral
+# Ember-Cerebral TodoMVC
 
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+A TodoMVC fulx implementation using [Cerebral](http://www.cerebraljs.com/) within Ember apps.
+
+![TodoMVC](https://dl.dropboxusercontent.com/u/6599249/todomvc.png "Ember-Cerebral TodoMVC")
+
+- Provides a mixin to bind cerebral store data to computed properties on Ember Components.
+
+```js
+import hbs from 'htmlbars-inline-precompile';
+import CerebralMixin from 'ember-cerebral/mixins/cerebral-mixin';
+
+export default Ember.Component.extend(CerebralMixin, {
+  cerebralProps() {
+    return {
+      currentlyEditingTodoIds: 'currentlyEditingTodoIds'
+    }
+  },
+
+  isEditing: Ember.computed('currentlyEditingTodoIds', 'todo', function() {
+    return this.get('currentlyEditingTodoIds').includes(this.get('todo.id'));
+  }),
+
+  layout: hbs`
+    <li>
+      <input type="checkbox">
+			{{#if isEditing}}
+				{{edit-todo todo=todo}}
+			{{/if}}
+    </li>
+  `
+});
+```
+- Co-locates templates with their backing components (React style) using `htmlbars-inline-precompile`.
+- `GET api/todos` and `POST api/todo/:id` endpoints are mocked using [Ember CLI MIRAGE](http://www.ember-cli-mirage.com/) to demonstrate ajax requests.
+
 
 ## Prerequisites
 
