@@ -1,6 +1,6 @@
 # Ember-Cerebral TodoMVC
 
-A TodoMVC fulx implementation using [Cerebral](http://www.cerebraljs.com/) within Ember apps.
+A TodoMVC fulx implementation using [Cerebral](http://www.cerebraljs.com/) and Ember.
 
 ![TodoMVC](https://dl.dropboxusercontent.com/u/6599249/todomvc.png "Ember-Cerebral TodoMVC")
 
@@ -34,6 +34,11 @@ export default Ember.Component.extend(CerebralMixin, {
 - Co-locates templates with their backing components (React style) using `htmlbars-inline-precompile`.
 - `GET api/todos` and `POST api/todo/:id` endpoints are mocked using [Ember CLI MIRAGE](http://www.ember-cli-mirage.com/) to demonstrate ajax requests.
 
+### Thanks
+
+Thanks to Toran Billups (@toranb) who's [screencast](https://vimeo.com/160234990) on [ember-redux](https://github.com/toranb/ember-redux) inspired this integration.
+
+----------------
 
 ## Prerequisites
 
