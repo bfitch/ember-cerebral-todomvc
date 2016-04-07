@@ -1,11 +1,11 @@
 export default Ember.Route.extend({
   init() {
-    this.get('cerebral').getSignals().indexRouted();
+    this.get('signals').indexRouted();
     this._super(...arguments);
   },
 
   model(params) {
-    this.get('cerebral').getSignals().filterUpdated({
+    this.get('signals').filterUpdated({
       activeFilter: params.filter
     });
   }
